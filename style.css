@@ -1,4 +1,3 @@
-
 body{
     margin:0;
     font-family:'Noto Sans Bengali', sans-serif;
@@ -6,15 +5,21 @@ body{
     padding:30px;
 }
 
+/* ============================= */
+/*           LAYOUT              */
+/* ============================= */
+
 .app{
     display:flex;
     gap:40px;
     max-width:1400px;
     margin:auto;
+    align-items:flex-start;
 }
 
+/* Left Panel */
 .panel{
-    width:350px;
+    flex:0 0 350px;   /* fixed width but flexible */
     background:#1e1e1e;
     padding:25px;
     border-radius:15px;
@@ -54,12 +59,14 @@ button{
 }
 
 /* ============================= */
-/*        CARD DESIGN 720px      */
+/*        RESPONSIVE CARD        */
 /* ============================= */
 
 .card{
-    width:1080px;
-    height:720px;   /* ✅ Changed */
+    flex:1;                   /* take remaining space */
+    width:100%;
+    max-width:1080px;         /* original max size */
+    aspect-ratio:3 / 2;       /* 1080x720 ratio */
     position:relative;
     overflow:hidden;
     background:#000;
@@ -69,7 +76,7 @@ button{
 .bg{
     position:absolute;
     width:100%;
-    height:60%;   /* Adjusted proportion */
+    height:60%;
     object-fit:cover;
     top:0;
 }
@@ -81,27 +88,27 @@ button{
     width:100%;
     height:40%;
     background:linear-gradient(to bottom,#b30000,#7a0000);
-    padding:80px 50px 50px 50px;   /* Reduced padding */
+    padding:6% 5%;
     box-sizing:border-box;
     color:white;
 }
 
 /* Headline */
-.headline{
-    font-size:42px;   /* Reduced */
-    font-weight:900;
+.headline{    
+    font-size:clamp(20px,3vw,42px);
+    font-weight:700;
     color:#ffcc00;
     margin-bottom:15px;
     line-height:1.3;
-    text-align: center;
+    text-align:center;
 }
 
 /* Subheadline */
 .subheadline{
-    font-size:28px;   /* Reduced */
+    font-size:clamp(14px,2.2vw,28px);
     font-weight:700;
     line-height:1.4;
-    text-align: center;
+    text-align:center;
 }
 
 /* Footer */
@@ -112,8 +119,8 @@ button{
     background:#222;
     color:white;
     text-align:center;
-    padding:12px;
-    font-size:20px;   /* Reduced */
+    padding:1.2%;
+    font-size:clamp(10px,1.5vw,20px);
 }
 
 /* Logo */
@@ -122,71 +129,47 @@ button{
     top:58%;
     left:50%;
     transform:translate(-50%,-50%);
-    width:130px;   /* Reduced */
-    height:130px;
+    width:clamp(60px,10vw,130px);
+    height:clamp(60px,10vw,130px);
     border-radius:50%;
     border:6px solid white;
     object-fit:cover;
     background:white;
-    z-index: 1;
+    z-index:1;
 }
 
-
-
 /* ======================= */
-/*       MEDIA QUERIES     */
+/*       MOBILE VIEW       */
 /* ======================= */
+
 @media (max-width: 768px) {
-    .app {
-        flex-direction: column;
-        gap: 15px;
-        padding: 10px;
+
+    body{
+        padding:15px;
     }
 
-    .red-section {
-        padding: 15% 5%;
+    .app{
+        flex-direction:column;
+        gap:20px;
     }
 
-    .headline {
-        font-size: clamp(20px, 6vw, 32px);
+    .panel{
+        flex:unset;
+        width:100%;
     }
 
-    .subheadline {
-        font-size: clamp(14px, 4vw, 22px);
-    }
-
-    .footer {
-        font-size: clamp(12px, 3vw, 16px);
+    .card{
+        max-width:100%;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
+
+    body{
+        padding:10px;
     }
 
-    .panel {
-        padding: 15px;
-    }
-
-    .red-section {
-        padding: 20% 5%;
-    }
-
-    .headline {
-        font-size: clamp(18px, 6vw, 28px);
-    }
-
-    .subheadline {
-        font-size: clamp(12px, 4vw, 20px);
-    }
-
-    .logo {
-        width: clamp(60px, 20vw, 100px);
-        height: clamp(60px, 20vw, 100px);
-    }
-
-    .footer {
-        font-size: clamp(10px, 4vw, 16px);
+    .panel{
+        width: fit-content;
     }
 }

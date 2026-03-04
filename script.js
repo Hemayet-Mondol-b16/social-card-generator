@@ -19,14 +19,14 @@ function generateCard(){
         reader.readAsDataURL(bgInput.files[0]);
     }
 
-    const logoInput=document.getElementById("logoInput");
-    if(logoInput.files[0]){
-        const reader=new FileReader();
-        reader.onload=function(e){
-            document.getElementById("logoImage").src=e.target.result;
-        }
-        reader.readAsDataURL(logoInput.files[0]);
-    }
+    // const logoInput=document.getElementById("logoInput");
+    // if(logoInput.files[0]){
+    //     const reader=new FileReader();
+    //     reader.onload=function(e){
+    //         document.getElementById("logoImage").src=e.target.result;
+    //     }
+    //     reader.readAsDataURL(logoInput.files[0]);
+    // }
 }
 
 function downloadCard() {
@@ -35,7 +35,7 @@ function downloadCard() {
     // Clone the card
     const clone = card.cloneNode(true);
     clone.style.width = "1080px";
-    clone.style.height = "720px";
+    clone.style.height = "800px";
     clone.style.transform = "scale(1)";
     clone.style.position = "absolute";
     clone.style.left = "-9999px"; // move off-screen
