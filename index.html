@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>News Style Post Generator</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="panel">
+    <h2>📰 News Post Controls</h2>
+
+    <div class="form-group">
+        <label>Headline (Yellow Text)</label>
+        <textarea id="headlineInput"></textarea>
+    </div>
+
+    <!-- <div class="form-group">
+        <label>বিস্তারিত কমেন্টে</label>
+        <textarea id="subheadlineInput"></textarea>
+    </div> -->
+
+    <div class="form-group">
+        <label>Footer Text</label>
+        <input type="text" id="footerInput">
+    </div>
+
+    <div class="form-group">
+        <label>Background Image</label>
+        <input type="file" id="bgInput" accept="image/*">
+    </div>
+
+    <div class="form-group">
+        <label>Logo Image</label>
+        <input type="file" id="logoInput" accept="image/*">
+    </div>    
+
+    <div class="form-group">
+        <label>Card Background Color(যদি ছবি না থাকে তাহলে ছবির বাকগ্রান্ড কালার চেঞ্জ করতে পারেন)</label>
+        <input type="color" id="cardBgColorPicker" value="#000000">
+        
+    </div>
+
+    <button onclick="generateCard()">Generate</button>
+    <button onclick="downloadCard()">Download PNG</button>
+</div>
+
+<div id="card" class="card">
+
+    <img id="bgImage" class="bg">
+
+    <img id="logoImage" class="logo">
+
+    <div class="red-section">
+        <div class="headline" id="headlineText">শিরোনাম এখানে লিখুন</div>
+        <div class="subheadline" id="subheadlineText">বিস্তারিত কমেন্টে</div>
+    </div>
+
+    <div class="footer" id="footerText">
+        আপনার পেজের নাম এখানে
+    </div>
+
+</div>
+
+</div>
+
+<script src="/script.js"></script>
+
+</body>
+</html>
