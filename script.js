@@ -34,18 +34,21 @@ function downloadCard() {
 
     // Clone the card
     const clone = card.cloneNode(true);
+
+    // Force exact export size
     clone.style.width = "1080px";
     clone.style.height = "800px";
-    clone.style.transform = "scale(1)";
-    clone.style.position = "absolute";
-    clone.style.left = "-9999px"; // move off-screen
+    clone.style.maxWidth = "1080px";
+    clone.style.aspectRatio = "unset";
+    clone.style.position = "fixed";
+    clone.style.left = "0";
     clone.style.top = "0";
     clone.style.margin = "0";
-    clone.style.zIndex = "9999";
+    clone.style.transform = "none";
+    clone.style.zIndex = "-1";
 
     document.body.appendChild(clone);
 
-    // Wait for fonts and images to load
     const images = clone.querySelectorAll("img");
     const imagePromises = Array.from(images).map(img => {
         if (img.complete) return Promise.resolve();
@@ -54,15 +57,25 @@ function downloadCard() {
 
     document.fonts.ready.then(() => {
         Promise.all(imagePromises).then(() => {
-            html2canvas(clone, { scale: 2 }).then(canvas => {
+
+            html2canvas(clone, {
+                width: 1080,
+                height: 800,
+                windowWidth: 1080,
+                windowHeight: 800,
+                scale: 1,
+                useCORS: true,
+                backgroundColor: null
+            }).then(canvas => {
+
                 const link = document.createElement("a");
                 link.download = "news-post.png";
                 link.href = canvas.toDataURL("image/png");
                 link.click();
 
-                // Remove the clone after download
                 document.body.removeChild(clone);
             });
+
         });
     });
 }
