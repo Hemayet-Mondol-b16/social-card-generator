@@ -59,7 +59,7 @@ button{
 
 .card{
     width:1080px;
-    height:800px;   /* ✅ Changed */
+    height:720px;   /* ✅ Changed */
     position:relative;
     overflow:hidden;
     background:#000;
