@@ -119,9 +119,19 @@ button{
     width:100%;
     background:#222;
     color:white;
-    text-align:center;
     padding:1.2%;
+    
     font-size:clamp(10px,1.5vw,20px);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer a{
+    padding-right: 20px;
+    color:#fff;
+    text-decoration:none;
 }
 
 /* Logo */

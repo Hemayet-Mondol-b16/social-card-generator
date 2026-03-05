@@ -4,11 +4,11 @@ function generateCard(){
     document.getElementById("headlineText").innerText =
         document.getElementById("headlineInput").value;
 
-   /* document.getElementById("subheadlineText").innerText =
-        document.getElementById("subheadlineInput").value;*/
+    document.getElementById("subheadlineText").innerText =
+        document.getElementById("subheadlineInput").value;
 
-    document.getElementById("footerText").innerText =
-        document.getElementById("footerInput").value;
+    // document.getElementById("footerText").innerText =
+    //     document.getElementById("footerInput").value;
 
     const bgInput=document.getElementById("bgInput");
     if(bgInput.files[0]){
@@ -79,3 +79,9 @@ function downloadCard() {
         });
     });
 }
+
+const today = new Date();
+const options = { year: 'numeric', month: 'long', day: 'numeric' };
+
+document.getElementById("todayDate").innerText =
+    today.toLocaleDateString('en-US', options);
