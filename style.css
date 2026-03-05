@@ -79,6 +79,11 @@ button{
     height:60%;
     object-fit:cover;
     top:0;
+    border-top: 5px solid #b30000;
+    border-right: 5px solid #b30000;
+    border-bottom: 5px solid #b30000;
+    border-left: 5px solid #b30000;
+    box-sizing:border-box;
 }
 
 /* Red Section */
@@ -119,9 +124,19 @@ button{
     width:100%;
     background:#222;
     color:white;
-    text-align:center;
     padding:1.2%;
+    
     font-size:clamp(10px,1.5vw,20px);
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.footer a{
+    padding-right: 20px;
+    color:#fff;
+    text-decoration:none;
 }
 
 /* Logo */
@@ -147,7 +162,7 @@ button{
 
     body{
         padding:15px;
-    }
+    }    
 
     .app{
         flex-direction:column;
@@ -169,7 +184,6 @@ button{
     body{
         padding:10px;
     }
-
     .panel{
         width: fit-content;
     }
